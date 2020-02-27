@@ -69,7 +69,7 @@
     "staking": {
       "params": {
         "unbonding_time": "1814400000000000",
-        "max_validators": 50,
+        "max_validators": 6,
         "max_entries": 7,
         "historical_entries": 0,
         "bond_denom": "uscrt"
