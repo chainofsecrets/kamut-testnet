@@ -35,10 +35,15 @@ _Note: Even if we are running this command and the previous one with sudo, this 
 sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
 ```
 
-### 4. Initialize your installation of the enigmachain. Choose a **moniker** for yourself that will be public, and replace `<MONIKER>` with your moniker below
+### 4. Create a key to hold your Validator account & Choose a **moniker** for yourself that will be public, and replace `<MONIKER>` with your moniker below
 
 ```bash
-enigmad init <MONIKER> --chain-id kamut-testnet-1
+enigmacli keys add <MONIKER>
+```
+
+### 4.1 Show the address of your created Validator (Save this in a text file for your future reference)
+```bash
+enigmacli keys show <MONIKER> -a
 ```
 
 ### 5. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
@@ -47,4 +52,14 @@ enigmad init <MONIKER> --chain-id kamut-testnet-1
 wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
 ```
 
-### 6. 
+### 6. Sign the Genesis.json
+
+```bash
+enigmad gentx --name <MONIKER>
+``` 
+### 7. Upload your signed Genesis transaction JSON to pastebin and link it into the Kamut Testnet TG channel.
+
+```bash
+pastebinit -b pastebin.com ~/.enigmad/config/gentx/*.json
+```
+
