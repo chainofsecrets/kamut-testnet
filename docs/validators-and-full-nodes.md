@@ -66,6 +66,18 @@ pastebinit -b pastebin.com ~/.enigmad/config/gentx/*.json
 ```
 
 ### 8. Download the new copy of Kamut Testnet Genesis Block file which has genesis validators: `genesis.json`
+
 ```bash
 waiting for link
+```
+
+### 9. Validate Genesis
+
+```bash
+enigmad validate-genesis
+```
+### 10. Add Kamut Testnet Bootstrap Node as a persistent peer in your configuration file.
+
+```bash
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "7b574eafec435c6b20a9142ae76811bc008d0dbd\@45.79.143.29:26656"/' ~/.enigmad/config/config.toml
 ```
