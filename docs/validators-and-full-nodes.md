@@ -34,6 +34,12 @@ _Note: Even if we are running this command and the previous one with sudo, this 
 ```bash
 sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
 ```
+### 3.1 Initiate Enigmad
+
+```bash
+enigmad init <moniker> --chain-id kamut-testnet-1
+
+```
 
 ### 4. Create a key to hold your Validator account & Choose a **moniker** for yourself that will be public, and replace `<MONIKER>` with your moniker below
 
