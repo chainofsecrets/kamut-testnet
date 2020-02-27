@@ -42,6 +42,7 @@ enigmacli keys add <MONIKER>
 ```
 
 ### 4.1 Show the address of your created Validator (Save this in a text file for your future reference)
+
 ```bash
 enigmacli keys show <MONIKER> -a
 ```
@@ -57,9 +58,14 @@ wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chaino
 ```bash
 enigmad gentx --name <MONIKER>
 ``` 
+
 ### 7. Upload your signed Genesis transaction JSON to pastebin and link it into the Kamut Testnet TG channel.
 
 ```bash
 pastebinit -b pastebin.com ~/.enigmad/config/gentx/*.json
 ```
 
+### 8. Download the new copy of Kamut Testnet Genesis Block file which has genesis validators: `genesis.json`
+```bash
+waiting for link
+```
