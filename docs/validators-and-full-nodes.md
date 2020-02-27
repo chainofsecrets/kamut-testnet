@@ -50,7 +50,7 @@ enigmacli keys show <MONIKER> -a
 ### 5. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
 
 ```bash
-wget ~/.enigmad/config/ "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
+wget ~/.enigmad/config/* "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
 ```
 
 ### 6. Sign the Genesis.json
