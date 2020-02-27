@@ -81,3 +81,21 @@ enigmad validate-genesis
 ```bash
 perl -i -pe 's/persistent_peers = ""/persistent_peers = "7b574eafec435c6b20a9142ae76811bc008d0dbd\@45.79.143.29:26656"/' ~/.enigmad/config/config.toml
 ```
+
+### 11. Enable enigma-node as a system service:
+
+```bash
+sudo systemctl enable enigma-node
+```
+
+### 12. Start enigma-node as a system service:
+
+```bash
+sudo systemctl start enigma-node
+```
+
+### 13. If everything above worked correctly, the following command will show your node streaming blocks after all genesis validators come up (this is for debugging purposes only, kill this command anytime with Ctrl-C):
+
+```bash
+journalctl -f -u enigma-node
+```
