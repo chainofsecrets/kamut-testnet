@@ -1,4 +1,4 @@
-# How to join Kamut Testnet Validator
+# How to join Kamut Testnet as a Genesis Validator
 
 This document details how to join the Kamut Enigma Blockchain `Testnet` as a validator.
 
@@ -20,8 +20,6 @@ wget -O enigmachain_0.0.2_amd64.deb
 ```bash
 https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
 ```
-
-([How to verify releases](/docs/verify-releases.md))
 
 ### 2. Install the enigmachain package:
 
