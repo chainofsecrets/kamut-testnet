@@ -68,7 +68,7 @@ pastebinit -b pastebin.com ~/.enigmad/config/gentx/*.json
 ### 8. Download the new copy of Kamut Testnet Genesis Block file which has genesis validators: `genesis.json`
 
 ```bash
-waiting for link
+DO NOT PROCEED PAST HERE: waiting for link after all validators sign genesis
 ```
 
 ### 9. Validate Genesis
