@@ -59,7 +59,37 @@
                 "amount": "50226233785452"
               }
             ],
-            "public_key": "enigmapub1addwnpepqdq4e7yfnrc7ftsxj4x8eas2t0g5mc2fjtgfh599vaasjt7r00cl2h7qqzf",
+            "public_key": "",
+            "account_number": 0,
+            "sequence": 0
+          }
+        },
+         {
+          "type": "cosmos-sdk/Account",
+          "value": {
+            "address": "enigma1az0vn0w64h8lx5gfekjkfqkfpvs0s545xafdqy",
+            "coins": [
+              {
+                "denom": "uscrt",
+                "amount": "100000000000"
+              }
+            ],
+            "public_key": "",
+            "account_number": 0,
+            "sequence": 0
+          }
+        },
+         {
+          "type": "cosmos-sdk/Account",
+          "value": {
+            "address": "enigma1gd9tgnka68uey6vl94rmtwcdsw3lnjaw8ha68m",
+            "coins": [
+              {
+                "denom": "uscrt",
+                "amount": "100000000000"
+              }
+            ],
+            "public_key": "",
             "account_number": 0,
             "sequence": 0
           }
