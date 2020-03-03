@@ -46,33 +46,52 @@ wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chaino
 enigmad validate-genesis
 ```
 
-### 6. Setting Persistent Node to Kamut Bootstrap 
+### 8. Setting Persistent Node to Kamut Bootstrap 
 ```bash
 perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b\@198.74.53.44:26656"/' ~/.enigmad/config/config.toml
 ```
-### 4. Replace `<keyalias>` with your friendly key name.
+### 9. Replace `<keyalias>` with your friendly key name.
 
 ```bash
 enigmacli keys add <keyalias>
 ```
 
-### 7. Enable enigma-node as a system service:
+### 10. Enable enigma-node as a system service:
 
 ```bash
 sudo systemctl enable enigma-node
 ```
 
-### 8. Start enigma-node as a system service:
+### 11. Start enigma-node as a system service:
 
 ```bash
 sudo systemctl start enigma-node
 ```
 
-### 9. If everything above worked correctly, the following command will show your node streaming blocks after all genesis validators come up (this is for debugging purposes only, kill this command anytime with Ctrl-C):
+### 12. If everything above worked correctly, the following command will show your node streaming blocks after all genesis validators come up (this is for debugging purposes only, kill this command anytime with Ctrl-C):
 
 ```bash
 journalctl -f -u enigma-node
 ```
+
+### 13. Add the following configuration settings (some of these avoid having to type some flags all the time):
+
+```bash
+enigmacli config chain-id kamut-testnet-1
+```
+
+```bash
+enigmacli config output json
+```
+
+```bash
+enigmacli config indent true
+```
+
+```bash
+enigmacli config trust-node true # true if you trust the full-node you are connecting to, false otherwise
+```
+
 
 # Join as Kamut Testnet as new Validator
 
