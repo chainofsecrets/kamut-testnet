@@ -67,7 +67,7 @@ journalctl -f -u enigma-node
 
 # Join as Kamut Testnet as new Validator
 
-Firstly, please run the following and paste the address into testnet telegram
+Firstly, please run the following and paste the address into testnet telegram so we can give you some SCRT tokens in this account to create your validator.
 
 ```bash
 enigmacli keys show -a <key-alias>
