@@ -14,11 +14,7 @@ This document details how to join the Kamut Enigma Blockchain `Testnet` as a val
 ### 1. Download the [EnigmaChain package installer](https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb) (Debian/Ubuntu):
 
 ```bash
-wget -O enigmachain_0.0.2_amd64.deb
-```
-
-```bash
-https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
+wget -O enigmachain_0.0.2_amd64.deb https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
 ```
 
 ### 2. Install the enigmachain package:
