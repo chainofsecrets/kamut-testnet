@@ -44,7 +44,7 @@ enigmad init [moniker] --chain-id kamut-testnet-1
 
 ### 6 
 ```bash
-persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b@198.74.53.44:26656"
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b\@198.74.53.44:26656"/' ~/.enigmad/config/config.toml
 ```
 
 ### 7. Enable enigma-node as a system service:
