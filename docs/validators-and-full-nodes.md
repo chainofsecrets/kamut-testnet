@@ -36,7 +36,7 @@ sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
 enigmacli keys add <keyalias>
 ```
 
-### 5. Change [moniker] to a name you want to have your node seen in public as
+### 5. Change `[moniker]` to a name you want to have your node seen in public as
 
 ```bash
 enigmad init [moniker] --chain-id kamut-testnet-1
