@@ -14,7 +14,7 @@ This document details how to join the Kamut Enigma Blockchain `Testnet` as a val
 ### 1. Download the [EnigmaChain package installer](https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb) (Debian/Ubuntu):
 
 ```bash
-wget -O enigmachain_0.0.2_amd64.deb https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
+wget https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
 ```
 
 ### 2. Install the enigmachain package:
@@ -30,68 +30,69 @@ _Note: Even if we are running this command and the previous one with sudo, this 
 ```bash
 sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
 ```
-
-### 4. Create a key to hold your Validator account & Choose a **moniker** for yourself that will be public, and replace `<MONIKER>` with your moniker below
+### 4. 
 
 ```bash
-enigmacli keys add <MONIKER>
+enigmacli keys add <keyalias>
 ```
 
-### 4.1 Show the address of your created Validator (Save this in a text file for your future reference)
+### 5. 
 
 ```bash
-enigmacli keys show <MONIKER> -a
+enigmad init [moniker] --chain-id kamut-testnet-1
 ```
 
-### 5. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
-
+### 6 
 ```bash
-wget ~/.enigmad/config/* "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
+persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b@198.74.53.44:26656"
 ```
 
-### 6. Sign the Genesis.json
-
-```bash
-enigmad gentx --name <MONIKER>
-``` 
-
-### 7. Upload your signed Genesis transaction JSON to pastebin and link it into the Kamut Testnet TG channel.
-
-```bash
-pastebinit -b pastebin.com ~/.enigmad/config/gentx/*.json
-```
-
-### 8. Download the new copy of Kamut Testnet Genesis Block file which has genesis validators: `genesis.json`
-
-```bash
-DO NOT PROCEED PAST HERE: waiting for link after all validators sign genesis
-```
-
-### 9. Validate Genesis
-
-```bash
-enigmad validate-genesis
-```
-### 10. Add Kamut Testnet Bootstrap Node as a persistent peer in your configuration file.
-
-```bash
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "7b574eafec435c6b20a9142ae76811bc008d0dbd\@45.79.143.29:26656"/' ~/.enigmad/config/config.toml
-```
-
-### 11. Enable enigma-node as a system service:
+### 7. Enable enigma-node as a system service:
 
 ```bash
 sudo systemctl enable enigma-node
 ```
 
-### 12. Start enigma-node as a system service:
+### 8. Start enigma-node as a system service:
 
 ```bash
 sudo systemctl start enigma-node
 ```
 
-### 13. If everything above worked correctly, the following command will show your node streaming blocks after all genesis validators come up (this is for debugging purposes only, kill this command anytime with Ctrl-C):
+### 9. If everything above worked correctly, the following command will show your node streaming blocks after all genesis validators come up (this is for debugging purposes only, kill this command anytime with Ctrl-C):
 
 ```bash
 journalctl -f -u enigma-node
 ```
+
+# Join as Kamut Testnet as new Validator
+
+Firstly, please run the following and paste the address into testnet telegram
+
+```bash
+enigmacli keys show -a <key-alias>
+```
+
+After you have a private node up and running, run the following command:
+
+```bash
+enigmacli tx staking create-validator \
+  --amount=100000uscrt \ # This is the amount of coins you put at stake. i.e. 100000uscrt
+  --pubkey=$(enigmad tendermint show-validator) \
+  --moniker="<name-of-your-moniker>" \
+  --chain-id=kamut-testnet-1 \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
+  --min-self-delegation="1" \
+  --gas="auto" \
+  --gas-prices="0.025uscrt" \
+  --from=<name or address> # Name or address of your existing account
+```
+
+To check if you got added to the validator-set by running:
+
+```bash
+enigmacli q tendermint-validator-set
+```
+
