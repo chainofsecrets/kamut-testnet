@@ -30,21 +30,26 @@ _Note: Even if we are running this command and the previous one with sudo, this 
 ```bash
 sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
 ```
-### 4. Replace `<keyalias>` with your friendly key name.
-
-```bash
-enigmacli keys add <keyalias>
-```
 
 ### 5. Change `[moniker]` to a name you want to have your node seen in public as
 
 ```bash
 enigmad init [moniker] --chain-id kamut-testnet-1
 ```
+### 6. 
+
+```bash
+wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
+```
 
 ### 6. Setting Persistent Node to Kamut Bootstrap 
 ```bash
 perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b\@198.74.53.44:26656"/' ~/.enigmad/config/config.toml
+```
+### 4. Replace `<keyalias>` with your friendly key name.
+
+```bash
+enigmacli keys add <keyalias>
 ```
 
 ### 7. Enable enigma-node as a system service:
