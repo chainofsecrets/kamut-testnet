@@ -36,10 +36,14 @@ sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
 ```bash
 enigmad init [moniker] --chain-id kamut-testnet-1
 ```
-### 6. 
+### 6. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
 
 ```bash
 wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
+```
+### 7. Valid Genesis
+```bash
+enigmad validate-genesis
 ```
 
 ### 6. Setting Persistent Node to Kamut Bootstrap 
