@@ -1,4 +1,4 @@
-# How to join Kamut Enigma Blockchain Testnet as a Genesis Validator
+# How to join Kamut Enigma Blockchain Testnet as a Validator or Fullnode
 
 This document details how to join the Kamut Enigma Blockchain `Testnet` as a validator.
 
