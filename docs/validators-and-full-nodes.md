@@ -34,7 +34,7 @@ sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/kamut-node.service
 ### 5. Change `[moniker]` to a name you want to have your node seen in public as
 
 ```bash
-enigmad init [moniker] --chain-id kamut-testnet-1
+kamutd init [moniker] --chain-id kamut-testnet-1
 ```
 ### 6. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
 
@@ -43,17 +43,17 @@ wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chaino
 ```
 ### 7. Valid Genesis
 ```bash
-enigmad validate-genesis
+kamutd validate-genesis
 ```
 
 ### 8. Setting Persistent Node to Kamut Bootstrap 
 ```bash
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b\@198.74.53.44:26656"/' ~/.enigmad/config/config.toml
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b\@198.74.53.44:26656"/' ~/.kamutd/config/config.toml
 ```
 ### 9. Replace `<keyalias>` with your friendly key name.
 
 ```bash
-enigmacli keys add <keyalias>
+kamutcli keys add <keyalias>
 ```
 
 ### 10. Enable kamut-node as a system service:
@@ -106,7 +106,7 @@ After you have a private node up and running, run the following command:
 ```bash
 kamutcli tx staking create-validator \
   --amount=100000uscrt \ # This is the amount of coins you put at stake. i.e. 100000uscrt
-  --pubkey=$(enigmad tendermint show-validator) \
+  --pubkey=$(kamutd tendermint show-validator) \
   --moniker="<name-of-your-moniker>" \
   --chain-id=kamut-testnet-1 \
   --commission-rate="0.10" \
