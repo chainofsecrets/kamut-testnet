@@ -11,16 +11,16 @@ This document details how to join the Kamut Enigma Blockchain `Testnet` as a val
 
 ## Installation
 
-### 1. Download the [EnigmaChain package installer](https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb) (Debian/Ubuntu):
+### 1. Download the [Kamut Testnet package installer](https://github.com/chainofsecrets/KamutBlockchain/releases/download/v0.1.0/kamut-blockchain_0.1.0_amd64.deb) (Debian/Ubuntu):
 
 ```bash
-wget https://github.com/enigmampc/enigmachain/releases/download/v0.0.2/enigmachain_0.0.2_amd64.deb
+wget https://github.com/chainofsecrets/KamutBlockchain/releases/download/v0.1.0/kamut-blockchain_0.1.0_amd64.deb
 ```
 
 ### 2. Install the enigmachain package:
 
 ```bash
-sudo dpkg -i enigmachain_0.0.2_amd64.deb
+sudo dpkg -i kamut-blockchain_0.1.0_amd64.deb
 ```
 
 ### 3. Update the configuration file that sets up the system service with your current user as the user this service will run as.
@@ -28,7 +28,7 @@ sudo dpkg -i enigmachain_0.0.2_amd64.deb
 _Note: Even if we are running this command and the previous one with sudo, this package does not need to be run as root_.
 
 ```bash
-sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/enigma-node.service
+sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/kamut-node.service
 ```
 
 ### 5. Change `[moniker]` to a name you want to have your node seen in public as
@@ -56,40 +56,40 @@ perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74
 enigmacli keys add <keyalias>
 ```
 
-### 10. Enable enigma-node as a system service:
+### 10. Enable kamut-node as a system service:
 
 ```bash
-sudo systemctl enable enigma-node
+sudo systemctl enable kamut-node
 ```
 
-### 11. Start enigma-node as a system service:
+### 11. Start kamut-node as a system service:
 
 ```bash
-sudo systemctl start enigma-node
+sudo systemctl start kamut-node
 ```
 
 ### 12. If everything above worked correctly, the following command will show your node streaming blocks after all genesis validators come up (this is for debugging purposes only, kill this command anytime with Ctrl-C):
 
 ```bash
-journalctl -f -u enigma-node
+journalctl -f -u kamut-node
 ```
 
 ### 13. Add the following configuration settings (some of these avoid having to type some flags all the time):
 
 ```bash
-enigmacli config chain-id kamut-testnet-1
+kamutcli config chain-id kamut-testnet-1
 ```
 
 ```bash
-enigmacli config output json
+kamutcli config output json
 ```
 
 ```bash
-enigmacli config indent true
+kamutcli config indent true
 ```
 
 ```bash
-enigmacli config trust-node true # true if you trust the full-node you are connecting to, false otherwise
+kamutcli config trust-node true # true if you trust the full-node you are connecting to, false otherwise
 ```
 
 
@@ -98,13 +98,13 @@ enigmacli config trust-node true # true if you trust the full-node you are conne
 Firstly, please run the following and paste the address into testnet telegram so we can give you some SCRT tokens in this account to create your validator.
 
 ```bash
-enigmacli keys show -a <key-alias>
+kamutcli keys show -a <key-alias>
 ```
 
 After you have a private node up and running, run the following command:
 
 ```bash
-enigmacli tx staking create-validator \
+kamutcli tx staking create-validator \
   --amount=100000uscrt \ # This is the amount of coins you put at stake. i.e. 100000uscrt
   --pubkey=$(enigmad tendermint show-validator) \
   --moniker="<name-of-your-moniker>" \
@@ -120,6 +120,6 @@ enigmacli tx staking create-validator \
 To check if you got added to the validator-set by running:
 
 ```bash
-enigmacli q tendermint-validator-set
+kamutcli q tendermint-validator-set
 ```
 
