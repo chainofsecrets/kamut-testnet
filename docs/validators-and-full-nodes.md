@@ -39,7 +39,7 @@ kamutd init [moniker] --chain-id kamut-1
 ### 6. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
 
 ```bash
-wget -O ~/.kamutd/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
+wget -O ~/.kamutd/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/KamutBlockchain/master/genesis/genesis.json"
 ```
 ### 7. Valid Genesis
 ```bash
