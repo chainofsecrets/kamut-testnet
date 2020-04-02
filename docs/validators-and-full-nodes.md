@@ -11,16 +11,16 @@ This document details how to join the Kamut Enigma Blockchain `Testnet` as a val
 
 ## Installation
 
-### 1. Download the [Kamut Testnet package installer](https://github.com/chainofsecrets/KamutBlockchain/releases/download/v0.1.0/kamut-blockchain_0.1.0_amd64.deb) (Debian/Ubuntu):
+### 1. Download the [Kamut Testnet package installer](https://github.com/chainofsecrets/KamutBlockchain/releases/download/v0.9.0/kamut-blockchain_0.9.0_amd64.deb) (Debian/Ubuntu):
 
 ```bash
-wget https://github.com/chainofsecrets/KamutBlockchain/releases/download/v0.1.0/kamut-blockchain_0.1.0_amd64.deb
+wget https://github.com/chainofsecrets/KamutBlockchain/releases/download/v0.9.0/kamut-blockchain_0.9.0_amd64.deb
 ```
 
-### 2. Install the enigmachain package:
+### 2. Install the Kamut Testnet package:
 
 ```bash
-sudo dpkg -i kamut-blockchain_0.1.0_amd64.deb
+sudo dpkg -i kamut-blockchain_0.9.0_amd64.deb
 ```
 
 ### 3. Update the configuration file that sets up the system service with your current user as the user this service will run as.
@@ -34,12 +34,12 @@ sudo perl -i -pe "s/XXXXX/$USER/" /etc/systemd/system/kamut-node.service
 ### 5. Change `[moniker]` to a name you want to have your node seen in public as
 
 ```bash
-kamutd init [moniker] --chain-id kamut-testnet-1
+kamutd init [moniker] --chain-id kamut-1
 ```
 ### 6. Download a copy of the Kamut Testnet Genesis Block file: `genesis.json`
 
 ```bash
-wget -O ~/.enigmad/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
+wget -O ~/.kamutd/config/genesis.json "https://raw.githubusercontent.com/chainofsecrets/kamut-testnet/master/genesis.json"
 ```
 ### 7. Valid Genesis
 ```bash
@@ -48,7 +48,7 @@ kamutd validate-genesis
 
 ### 8. Setting Persistent Node to Kamut Bootstrap 
 ```bash
-perl -i -pe 's/persistent_peers = ""/persistent_peers = "4efa7d9e6d4970fea88da74d49de90433d8bc78b\@198.74.53.44:26656"/' ~/.kamutd/config/config.toml
+perl -i -pe 's/persistent_peers = ""/persistent_peers = "7c22a072fe43a3c5771e00646b1cef0c1d41f459\@78.47.43.118:26656"/' ~/.kamutd/config/config.toml
 ```
 ### 9. Replace `<keyalias>` with your friendly key name.
 
@@ -77,7 +77,7 @@ journalctl -f -u kamut-node
 ### 13. Add the following configuration settings (some of these avoid having to type some flags all the time):
 
 ```bash
-kamutcli config chain-id kamut-testnet-1
+kamutcli config chain-id kamut-1
 ```
 
 ```bash
